@@ -5,6 +5,7 @@ import { FontAwesome, AntDesign } from "@expo/vector-icons";
 import { THEME } from "../theme";
 import { EditModal } from "../components/EditModal";
 import { AppCard } from "../components/ui/AppCard";
+import { AppText } from "../components/ui/AppText";
 import { AppTextBold } from "../components/ui/AppTextBold";
 import { AppButton } from "../components/ui/AppButton";
 import { TodoContext } from "../context/todo/todoContext";
@@ -17,8 +18,8 @@ export const TodoScreen = () => {
 
   const todo = todos.find((t) => t.id === todoId);
 
-  const saveHandler = (title) => {
-    updateTodo(todo.id, title);
+  const saveHandler = async (title) => {
+    await updateTodo(todo.id, title);
     setModal(false);
   };
 
